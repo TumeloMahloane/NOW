@@ -1,0 +1,909 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Story</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght=500;700&family=Playfair+Display:ital,wght=0,400;1,400&family=Poppins:wght=300;400&display=swap");
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background-color: #fbf9f4; /* Soft romantic cream color */
+        font-family: "Poppins", sans-serif;
+        color: #4a3e3d;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow-x: hidden;
+      }
+
+      /* --- INTRO GATEWAY --- */
+      .intro-gate {
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background: linear-gradient(180deg, #fffaf6 0%, #fbf9f4 100%);
+        padding: 20px;
+        position: relative;
+      }
+
+      .intro-gate h2 {
+        font-family: "Playfair Display", serif;
+        font-size: 2.8rem;
+        color: #8c6a5c;
+        margin-bottom: 15px;
+        letter-spacing: 1px;
+        z-index: 5;
+      }
+
+      .btn-journey {
+        background: none;
+        border: 2px solid #8c6a5c;
+        color: #8c6a5c;
+        padding: 12px 30px;
+        font-family: "Playfair Display", serif;
+        font-style: italic;
+        font-size: 1.1rem;
+        border-radius: 30px;
+        cursor: pointer;
+        margin-top: 20px;
+        transition: all 0.4s ease;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        z-index: 5;
+      }
+
+      .btn-journey:hover {
+        background-color: #8c6a5c;
+        color: #fffaf6;
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(140, 106, 92, 0.15);
+      }
+
+      .btn-journey span {
+        display: inline-block;
+        animation: heartbeat 1.5s infinite ease-in-out;
+      }
+
+      @keyframes heartbeat {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.2);
+        }
+      }
+
+      /* --- FLYING BIRDS & BANNER ANIMATION --- */
+      .sky-container {
+        position: absolute;
+        top: 15%;
+        left: -400px; /* Start far off-screen left */
+        width: auto;
+        height: 150px;
+        display: flex;
+        align-items: center;
+        pointer-events: none;
+        z-index: 2;
+        animation: flyAcross 22s infinite linear;
+      }
+
+      /* SVG Bird Silhouette styling with custom wing-flap animation */
+      .bird {
+        width: 38px;
+        height: 38px;
+        fill: #aa958b;
+        opacity: 0.85;
+        animation: birdFlap 0.6s infinite alternate ease-in-out;
+      }
+
+      /* Offset birds slightly to create a natural flock formation */
+      .bird.follower-1 {
+        margin-top: -40px;
+        margin-left: -15px;
+        animation-delay: 0.15s;
+        transform: scale(0.8);
+      }
+
+      .bird.follower-2 {
+        margin-top: 50px;
+        margin-left: -25px;
+        animation-delay: 0.3s;
+        transform: scale(0.75);
+      }
+
+      /* Romantic Love Banner pulled by the lead bird */
+      .love-banner {
+        background: rgba(255, 255, 255, 0.92);
+        color: #705246;
+        font-family: "Dancing Script", cursive;
+        font-size: 1.3rem;
+        font-weight: bold;
+        padding: 6px 18px 8px 18px;
+        border-radius: 4px;
+        box-shadow: 0 4px 15px rgba(140, 106, 92, 0.08);
+        border: 1px dashed #d9cfc1;
+        white-space: nowrap;
+        margin-left: 8px;
+        position: relative;
+        transform-origin: left center;
+        animation: bannerWave 2s infinite ease-in-out;
+      }
+
+      /* Tiny connecting string from bird to banner */
+      .love-banner::before {
+        content: "";
+        position: absolute;
+        left: -10px;
+        top: 50%;
+        width: 10px;
+        height: 1px;
+        background: #aa958b;
+      }
+
+      /* Bird & Banner Keyframe Animations */
+      @keyframes flyAcross {
+        0% {
+          left: -450px;
+          top: 15%;
+        }
+        50% {
+          top: 22%; /* Gentle dip mid-sky */
+        }
+        100% {
+          left: 100%;
+          top: 12%;
+        }
+      }
+
+      @keyframes birdFlap {
+        0% {
+          transform: scaleY(0.3) skewX(-10deg);
+        }
+        100% {
+          transform: scaleY(1) skewX(10deg);
+        }
+      }
+
+      @keyframes bannerWave {
+        0%,
+        100% {
+          transform: rotate(-1deg) translateY(0);
+        }
+        50% {
+          transform: rotate(2deg) translateY(-4px);
+        }
+      }
+
+      /* --- MAIN CONTENT FRAME --- */
+      .main-wrapper {
+        max-width: 900px;
+        width: 100%;
+        padding: 60px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      h1 {
+        font-family: "Playfair Display", serif;
+        font-size: 2.5rem;
+        margin-bottom: 50px;
+        letter-spacing: 2px;
+        color: #8c6a5c;
+        text-align: center;
+      }
+
+      /* --- LOVE LETTER SECTION WITH DECORATIONS --- */
+      .letter-container {
+        background: #ffffff;
+        max-width: 600px;
+        width: 100%;
+        padding: 45px;
+        box-shadow: 0 15px 35px rgba(140, 106, 92, 0.07);
+        border-radius: 8px;
+        margin-bottom: 100px;
+        position: relative;
+        border: 4px double #e8ded1;
+        overflow: hidden;
+      }
+
+      /* Decorative elements inside the stationery */
+      .letter-container::before {
+        content: "✿  ♥  ✿";
+        position: absolute;
+        top: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: #cdbfa8;
+        font-size: 0.9rem;
+        letter-spacing: 4px;
+        opacity: 0.7;
+      }
+
+      /* Watermarked soft pulsing heart background */
+      .letter-watermark {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 14rem;
+        color: rgba(232, 222, 225, 0.25);
+        user-select: none;
+        pointer-events: none;
+        z-index: 1;
+        animation: pulseHeart 3s infinite ease-in-out;
+      }
+
+      @keyframes pulseHeart {
+        0%,
+        100% {
+          transform: translate(-50%, -50%) scale(1);
+        }
+        50% {
+          transform: translate(-50%, -50%) scale(1.05);
+        }
+      }
+
+      /* Custom Cursive Handwritten Stationery */
+      .letter-paper {
+        font-family: "Dancing Script", cursive;
+        font-size: 1.8rem;
+        font-weight: 500;
+        line-height: 2.6rem;
+        min-height: 250px;
+        color: #2c2525;
+        white-space: pre-wrap; /* Keeps line breaks */
+        position: relative;
+        z-index: 2;
+        padding-top: 15px;
+      }
+
+      /* Floating heart effect assets generated via script */
+      .floating-heart {
+        position: absolute;
+        color: rgba(224, 163, 163, 0.4);
+        pointer-events: none;
+        z-index: 3;
+        animation: floatUp 4s linear forwards;
+      }
+
+      @keyframes floatUp {
+        0% {
+          transform: translateY(100%) scale(0.5);
+          opacity: 0;
+        }
+        15% {
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-100px) scale(1.2);
+          opacity: 0;
+        }
+      }
+
+      /* The blinking cursor effect */
+      .cursor {
+        display: inline-block;
+        width: 2px;
+        background-color: #8c6a5c;
+        animation: blink 0.8s infinite;
+        margin-left: 2px;
+      }
+
+      @keyframes blink {
+        0%,
+        100% {
+          opacity: 0;
+        }
+        50% {
+          opacity: 1;
+        }
+      }
+
+      /* --- MEMORY LANE SECTION (SCROLL ANIMATED) --- */
+      .memory-lane {
+        width: 100%;
+        margin-bottom: 60px;
+        text-align: center;
+      }
+
+      .memory-lane h2 {
+        font-family: "Playfair Display", serif;
+        font-size: 1.8rem;
+        margin-bottom: 50px;
+        color: #8c6a5c;
+      }
+
+      .photo-gallery {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 35px;
+      }
+
+      /* Polaroid frame styling */
+      .polaroid {
+        background: white;
+        padding: 15px 15px 30px 15px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+        border-radius: 2px;
+        width: 260px;
+        transition:
+          transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1),
+          box-shadow 0.4s ease;
+        opacity: 0;
+        transform: translateY(40px);
+      }
+
+      /* Dynamic Reveal Class triggered by IntersectionObserver */
+      .polaroid.reveal {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Apply organic rotations once revealed */
+      .polaroid.reveal:nth-child(odd) {
+        transform: rotate(-2deg) translateY(0);
+      }
+      .polaroid.reveal:nth-child(even) {
+        transform: rotate(3deg) translateY(0);
+      }
+
+      .polaroid:hover {
+        transform: rotate(0deg) scale(1.06) !important;
+        box-shadow: 0 15px 35px rgba(140, 106, 92, 0.15);
+        z-index: 10;
+      }
+
+      .polaroid img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        filter: sepia(10%); /* Subtle vintage warm tint */
+      }
+
+      .polaroid .caption {
+        font-family: "Dancing Script", cursive;
+        font-size: 1.2rem;
+        margin-top: 15px;
+        color: #5c4d4c;
+      }
+
+      /* --- RUNNING MINIONS ANIMATION AREA --- */
+      .minion-track {
+        width: 100%;
+        max-width: 650px;
+        height: 100px;
+        margin: 20px 0 60px 0;
+        position: relative;
+        overflow: hidden;
+        border-bottom: 2px dashed #e4decb;
+      }
+
+      .minion-pair {
+        position: absolute;
+        bottom: 5px;
+        left: -160px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        animation: minionRun 11s infinite linear;
+      }
+
+      /* Pure CSS Styled Minion Base Styles */
+      .minion {
+        width: 45px;
+        height: 65px;
+        background-color: #ffda44;
+        border-radius: 30px 30px 15px 15px;
+        position: relative;
+        box-shadow: inset -4px -4px 0px rgba(0, 0, 0, 0.08);
+        animation: minionBob 0.35s infinite alternate ease-in-out;
+      }
+
+      .minion.two {
+        animation-delay: 0.15s;
+        height: 58px; /* Make the second minion slightly shorter */
+      }
+
+      /* Goggles & Eyes */
+      .minion::before {
+        content: "";
+        position: absolute;
+        top: 14px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 26px;
+        height: 26px;
+        background: #fff;
+        border: 4.5px solid #83888c;
+        border-radius: 50%;
+        z-index: 2;
+      }
+
+      .minion .pupil {
+        position: absolute;
+        top: 24px;
+        left: 21px;
+        width: 5px;
+        height: 5px;
+        background: #432210;
+        border-radius: 50%;
+        z-index: 3;
+      }
+
+      .minion .gasp-smile {
+        position: absolute;
+        top: 42px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 14px;
+        height: 8px;
+        background: #613636;
+        border-radius: 2px 2px 10px 10px;
+      }
+
+      /* Denim Overalls */
+      .minion-clothes {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 22px;
+        background-color: #2b569e;
+        border-radius: 0 0 15px 15px;
+        overflow: hidden;
+      }
+
+      .minion-clothes::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 8px;
+        width: 29px;
+        height: 12px;
+        background-color: #2b569e;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        border-bottom: none;
+      }
+
+      /* Running Legs Animation */
+      .minion-legs {
+        position: absolute;
+        bottom: -6px;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        padding: 0 6px;
+      }
+
+      .minion-legs span {
+        width: 8px;
+        height: 10px;
+        background: #232323;
+        border-radius: 3px;
+        animation: legCycle 0.35s infinite alternate linear;
+      }
+
+      .minion-legs span:nth-child(2) {
+        animation-delay: 0.18s;
+      }
+
+      /* The heart they are chasing */
+      .chasing-heart {
+        font-size: 1.6rem;
+        color: #ff3366;
+        margin-left: 5px;
+        animation: heartFloat 0.7s infinite alternate ease-in-out;
+        text-shadow: 0 0 8px rgba(255, 51, 102, 0.4);
+      }
+
+      /* Keyframes for Track Movement & Bobbing */
+      @keyframes minionRun {
+        0% {
+          left: -180px;
+          transform: scaleX(1);
+        }
+        48% {
+          left: 100%;
+          transform: scaleX(1);
+        }
+        50% {
+          left: 100%;
+          transform: scaleX(-1);
+        }
+        98% {
+          left: -180px;
+          transform: scaleX(-1);
+        }
+        100% {
+          left: -180px;
+          transform: scaleX(1);
+        }
+      }
+
+      @keyframes minionBob {
+        0% {
+          transform: translateY(0);
+        }
+        100% {
+          transform: translateY(-5px);
+        }
+      }
+
+      @keyframes legCycle {
+        0% {
+          transform: rotate(-25deg);
+        }
+        100% {
+          transform: rotate(25deg);
+        }
+      }
+
+      @keyframes heartFloat {
+        0% {
+          transform: translateY(3px) scale(0.9);
+        }
+        100% {
+          transform: translateY(-8px) scale(1.1);
+        }
+      }
+
+      /* --- PLAYLIST / QR CODE SECTION --- */
+      .playlist-section {
+        max-width: 400px;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 40px;
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.6s ease-out;
+      }
+
+      .playlist-section.reveal {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .playlist-section h2 {
+        font-family: "Playfair Display", serif;
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+        color: #8c6a5c;
+      }
+
+      .qr-container {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        background-color: #ffffff;
+        border: 2px dashed #cdbfa8;
+        border-radius: 12px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 15px;
+        box-shadow: 0 10px 25px rgba(140, 106, 92, 0.05);
+      }
+
+      .qr-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        border-radius: 6px;
+      }
+
+      .playlist-section p {
+        font-size: 0.9rem;
+        margin-top: 15px;
+        margin-bottom: 20px;
+        color: #8c7e70;
+        opacity: 0.9;
+      }
+
+      /* Apple Music Button Styling */
+      .btn-music {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        background: linear-gradient(135deg, #fc3c44 0%, #fa243c 100%);
+        color: #ffffff;
+        text-decoration: none;
+        padding: 12px 25px;
+        border-radius: 25px;
+        font-family: "Poppins", sans-serif;
+        font-size: 0.95rem;
+        font-weight: 500;
+        box-shadow: 0 5px 15px rgba(250, 36, 60, 0.25);
+        transition: all 0.3s ease;
+        width: 85%;
+      }
+
+      .btn-music:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(250, 36, 60, 0.4);
+        background: linear-gradient(135deg, #fa243c 0%, #e01b33 100%);
+      }
+
+      .btn-music svg {
+        fill: currentColor;
+        width: 18px;
+        height: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- BEGIN JOURNEY HOME SECTION -->
+    <div class="intro-gate">
+      <!-- FLYING FLOCK OF BIRDS WITH BANNER -->
+      <div class="sky-container">
+        <!-- Lead Bird Silhouette SVG -->
+        <svg class="bird" viewBox="0 0 24 24">
+          <path
+            d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.5 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+            style="display: none"
+          />
+          <!-- Simplified flight path outline -->
+          <path
+            d="M21 5c-3.5 1-7 4-9 7-2-3-5.5-6-9-7 3.5 3 5 8 9 9 4-1 5.5-6 9-9z"
+          />
+        </svg>
+        <!-- Love Message Banner tied to Lead Bird -->
+        <div class="love-banner">will grow old together 💖</div>
+
+        <!-- Follower Birds -->
+        <svg class="bird follower-1" viewBox="0 0 24 24">
+          <path
+            d="M21 5c-3.5 1-7 4-9 7-2-3-5.5-6-9-7 3.5 3 5 8 9 9 4-1 5.5-6 9-9z"
+          />
+        </svg>
+        <svg class="bird follower-2" viewBox="0 0 24 24">
+          <path
+            d="M21 5c-3.5 1-7 4-9 7-2-3-5.5-6-9-7 3.5 3 5 8 9 9 4-1 5.5-6 9-9z"
+          />
+        </svg>
+      </div>
+
+      <h2>Our Shared Story</h2>
+      <button class="btn-journey" onclick="scrollToJourney()">
+        Begin Journey <span>♥</span>
+      </button>
+    </div>
+
+    <!-- MAIN INTERACTIVE SECTION -->
+    <div class="main-wrapper" id="story-destination">
+      <h1>To the one who holds my heart...</h1>
+
+      <!-- Love Letter Area -->
+      <div class="letter-container">
+        <div class="letter-watermark">♥</div>
+        <div class="letter-paper" id="typed-text"></div>
+        <span class="cursor" id="letter-cursor">&nbsp;</span>
+      </div>
+
+      <!-- Memory Lane Area -->
+      <div class="memory-lane">
+        <h2>Me & My baby</h2>
+        <div class="photo-gallery">
+          <!-- Photo 1 -->
+          <div class="polaroid">
+            <img src="WhatsApp Image 2026-06-28 at 02.15.45.jpeg" />
+            <div class="caption">Laughing until it hurt</div>
+          </div>
+
+          <!-- Photo 2 -->
+          <div class="polaroid">
+            <img src="WhatsApp Image 2026-06-28 at 02.15.46 (1).jpeg" />
+            <div class="caption">That perfect afternoon</div>
+          </div>
+
+          <!-- Photo 3 -->
+          <div class="polaroid">
+            <img src="WhatsApp Image 2026-06-28 at 02.15.46 (2).jpeg" />
+            <div class="caption">Pretty eyes, pretty face</div>
+          </div>
+
+          <!-- Photo 4 -->
+          <div class="polaroid">
+            <img src="WhatsApp Image 2026-06-28 at 02.15.46.jpeg" />
+            <div class="caption">Our favorite escape</div>
+          </div>
+
+          <!-- Photo 5 -->
+          <div class="polaroid">
+            <img src="WhatsApp Image 2026-06-28 at 02.15.47.jpeg" />
+            <div class="caption">Your man, your man</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ANIMATED RUNNING MINIONS TRACK -->
+      <div class="minion-track" id="minion-runner-track">
+        <div class="minion-pair">
+          <!-- Minion 1 -->
+          <div class="minion one">
+            <div class="pupil"></div>
+            <div class="gasp-smile"></div>
+            <div class="minion-clothes"></div>
+            <div class="minion-legs"><span></span><span></span></div>
+          </div>
+          <!-- Minion 2 -->
+          <div class="minion two">
+            <div class="pupil"></div>
+            <div class="gasp-smile"></div>
+            <div class="minion-clothes"></div>
+            <div class="minion-legs"><span></span><span></span></div>
+          </div>
+          <!-- Chased Love Heart Element -->
+          <div class="chasing-heart">💝</div>
+        </div>
+      </div>
+
+      <!-- QR Code Block Area -->
+      <div class="playlist-section">
+        <h2>Your Playlist</h2>
+        <div class="qr-container">
+          <img
+            src="WhatsApp Image 2026-06-28 at 02.50.04.jpeg"
+            alt="Playlist QR Code"
+          />
+        </div>
+        <p>
+          Scan the code above, or click below to open the playlist directly:
+        </p>
+
+        <!-- Apple Music Playlist Link -->
+        <a
+          href="https://music.apple.com/za/playlist/resilience/pl.u-AkAm8XGUlprx7NP"
+          target="_blank"
+          class="btn-music"
+        >
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M19.5 3h-8c-.83 0-1.5.67-1.5 1.5v11.72c-.44-.37-1-.6-1.62-.6-1.45 0-2.62 1.18-2.62 2.63S6.93 21 8.38 21s2.62-1.18 2.62-2.63V7h7v5.22c-.44-.37-1-.6-1.62-.6-1.45 0-2.63 1.18-2.63 2.63s1.18 2.63 2.63 2.63 2.62-1.18 2.62-2.63V4.5c0-.83-.67-1.5-1.5-1.5z"
+            />
+          </svg>
+          Listen on Apple Music
+        </a>
+      </div>
+    </div>
+
+    <script>
+      const loveLetterText = `Dear Yakha, 
+I don’t even know where to begin because no matter how many times about you, I never seem to find enough words to explain what you mean to me. There are so many things that I want to say, and I hope that by the time you finish reading this, you’ll know how much deeply and genuinely I love you.
+
+Sometimes I sit and wonder about how we met, and I cant help it but smile all the time. It’s crazy that it all started because you asked me to vote for SCC thingy campaign. At the time it felt like such a small moment but come to think of it that’s probably the best day I’ve ever had. If someone had told me then that the beautiful girl asking me for my vote would one day become the love of my life, I probably would have laughed. Yet here we are and honestly wouldn't change our story for anything I would probably add some spice there and there when I tell our kids…. Opps
+
+Your confidence was something that really stood out to me, there was something about the way you carried yourself that made you stand out to me, plus that beautiful afro you were rocking that day, it suited you so perfectly and made you even more unforgettable and unique. But as time went on, I realized that your beauty wasn’t just in the way you looked, it was the way you care for other people, the way you laugh without holding back, and the way you could turn an ordinary moment into something worth remembering. You are funny, goofy, and you have one of the biggest hearts I’ve ever known. Watching you always trying to show up for the people you love has made me admire you even more 
+
+And I won’t lie Shem you still take my breath away every time I see you. Your bright eyes are one of my favorite things about you because they somehow make me feel calm and at home. Your smile lights up every room you walk into, and your beautiful face still makes me stop and think, “Wow that’s my girl”. Even when you wake up in the morning you look so pretty all the time and I’m always amazed. I don’t think you’ll truly understand how lucky I feel to call you mine.
+
+Sometimes I sit down and mind my business until a memory of us comes into play like that day when we were jogging and somehow ended up stopping at the cricket field, racing each other with those tires like two little kids who had forgotten about the rest of the world. Looking back now it wasn’t really about tires or the race. It was about how happy we were just being together. Those moments I will always cherish them. Or that other time we were looking by the window pretending to be cops. We came up with the funniest theories about people walking outside(by the other road), convincing ourselves we were somehow solving mysteries.
+
+You changed my life in more ways than you probably realize. Before you, I never thought someone could inspire me the way you do. You make me happy, but more than that you challenge me to become a better man every day. loving you makes want to work harder, grow stronger and become the kind of partner your soft soul deserves.
+
+I love you more than these words could ever fully express. No letter, no matter how long, could capture everything I feel whenever I look at you. So instead of trying to fit all my love into these pages, I’ll spend every day showing. I’ll keep choosing, supporting you, laughing with you, growing with you and loving you with everything I have. Thank you for being you and loving me throughout. I can’t wait to see where this journey of ours takes us because as long as I’m walking with you, I know I’ll always be exactly where I’m meant to be.
+Forever yours,
+Tumelo
+❤️
+`;
+
+      let index = 0;
+      const targetElement = document.getElementById("typed-text");
+      const letterContainer = document.querySelector(".letter-container");
+      const typingSpeed = 45;
+
+      // Scroll smoothly down from gateway
+      function scrollToJourney() {
+        document
+          .getElementById("story-destination")
+          .scrollIntoView({ behavior: "smooth" });
+        setTimeout(startLetter, 800);
+      }
+
+      function typeWriter() {
+        if (index < loveLetterText.length) {
+          const char = loveLetterText.charAt(index);
+          targetElement.textContent += char;
+
+          if (char === "❤️" || (index % 120 === 0 && Math.random() > 0.5)) {
+            createFloatingHeart();
+          }
+
+          index++;
+          setTimeout(typeWriter, typingSpeed);
+        } else {
+          document.getElementById("letter-cursor").style.display =
+            "inline-block";
+        }
+      }
+
+      function startLetter() {
+        if (index === 0) {
+          typeWriter();
+        }
+      }
+
+      function createFloatingHeart() {
+        const heart = document.createElement("div");
+        heart.classList.add("floating-heart");
+        heart.innerText = Math.random() > 0.5 ? "♥" : "💖";
+
+        heart.style.left = Math.random() * 80 + 10 + "%";
+        heart.style.bottom = "20px";
+        heart.style.fontSize = Math.random() * 15 + 12 + "px";
+
+        letterContainer.appendChild(heart);
+
+        setTimeout(() => {
+          heart.remove();
+        }, 4000);
+      }
+
+      // Minion trail effects
+      const track = document.getElementById("minion-runner-track");
+      setInterval(() => {
+        const trackRect = track.getBoundingClientRect();
+        if (trackRect.top < window.innerHeight && trackRect.bottom > 0) {
+          const trailHeart = document.createElement("div");
+          trailHeart.innerText = "❤️";
+          trailHeart.style.position = "absolute";
+          trailHeart.style.fontSize = "10px";
+          trailHeart.style.pointerEvents = "none";
+          trailHeart.style.opacity = "0.7";
+          trailHeart.style.transition = "all 1s ease-out";
+
+          const pairElement = document.querySelector(".minion-pair");
+          const leftOffset = pairElement.offsetLeft + 40;
+
+          trailHeart.style.left = leftOffset + "px";
+          trailHeart.style.bottom = 20 + Math.random() * 15 + "px";
+          track.appendChild(trailHeart);
+
+          setTimeout(() => {
+            trailHeart.style.transform = "translateY(-20px) scale(0.5)";
+            trailHeart.style.opacity = "0";
+          }, 50);
+          setTimeout(() => trailHeart.remove(), 1000);
+        }
+      }, 300);
+
+      // IntersectionObserver handles dynamic reveals of gallery items as you scroll
+      const observerOptions = {
+        threshold: 0.15,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("reveal");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      document
+        .querySelectorAll(".polaroid")
+        .forEach((img) => revealObserver.observe(img));
+      revealObserver.observe(document.querySelector(".playlist-section"));
+    </script>
+  </body>
+</html>
